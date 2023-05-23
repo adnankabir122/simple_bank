@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container div.bank{
+    display: flex;
+    align-items: center;
+}
+.bank-info-area{
+    display: flex;
+    justify-content: space-between;
+}
+.bank-info-area .card{
+    padding: 0px 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.bank-input-area{
+    margin-top: 30px;
+}
+.bank-input-area .single-input{
+    margin-bottom: 30px;
+    text-align: center;
+}

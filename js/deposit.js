@@ -1,32 +1,29 @@
-// step-1: add event listener to the deposit button
-document.getElementById('btn-deposit').addEventListener('click', function(){
-    // step-2: get the deposit amount from the deposit input field
-    // For input field use .value to the the value inside the input field
-    const depositField = document.getElementById('deposit-field');
-    const newDepositAmountString = depositField.value;
-    const newDepositAmount = parseFloat(newDepositAmountString);
-    
-    // step-3: get the current deposit total
-    // for non-input(element other than input, textarea) use innerText to get the text
-    const depositTotalElement = document.getElementById('deposit-total');
-    const previousDepositTotalString = depositTotalElement.innerText;
-    const previousDepositTotal = parseFloat(previousDepositTotalString);
-    
-    // step-4: add numbers to set the total deposit
-    const currentDepositTotal = previousDepositTotal + newDepositAmount;
-    // set the deposit total
-    depositTotalElement.innerText = currentDepositTotal;
+let depositBtn = document.getElementById("deposit-btn")
 
-    // step-5: get ballance current total
-    const balanceTotalElement = document.getElementById('balance-total');
-    const previousBalanceTotalString = balanceTotalElement.innerText;
-    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+// deposit span tag ke nilam
+let depositTotal = document.getElementById("deposit-total")
 
-    // step-6: calculate current total balance
-    const currentBalanceTotal = previousBalanceTotal + newDepositAmount;
-    // set the balance total
-    balanceTotalElement.innerText = currentBalanceTotal;
+// deposit span tag ar vitorer lekha ke nilam
+let depositCurrentAmount = depositTotal.innerText
+depositCurrentAmount.innerText = "00"
 
-    // step-7: clear the deposit field
-    depositField.value = '';
-})
+depositBtn.addEventListener("click", function () {
+    // input field ke nilam
+    let depositField = document.getElementById("deposit-field")
+
+    //input field ar value ke nilam
+    let depositFieldValue = parseInt(depositField.value)
+
+    depositCurrentAmount = parseInt(depositCurrentAmount)
+
+    let depositTotalAmount = depositFieldValue + depositCurrentAmount
+    depositTotal.innerText = depositTotalAmount
+    depositField.value = ""
+
+    // Balance Total
+    let balanceTotal = document.getElementById("balance-total")
+    let balanceCurrentAmount = parseInt(balanceTotal.innerText)
+
+    let balanceTotalAmount = balanceCurrentAmount + depositFieldValue
+    balanceTotal.innerText = balanceTotalAmount
+});
